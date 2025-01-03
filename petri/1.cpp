@@ -7,13 +7,19 @@ double A, B;
 
 Store linka("Linka", 1);
 
+class Nova_linka : public Process {
+   void Behavior() {
+      linka.SetCapacity(2);
+      Wait(Exponential(15));
+      linka.SetCapacity(1);
+    }
+};
+
 
 class Obsluha_linky : public Process {
     void Behavior() override {
         if (linka.QueueLen() > 5){
-            linka.SetCapacity(2);
-            Wait(Exponential(15));
-            linka.SetCapacity(1);
+            (new Nova_linka)->Activate();
         }
         Enter(linka);
         Wait(Exponential(B));
