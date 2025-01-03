@@ -4,6 +4,7 @@
 #include <stdexcept>
 
 double A, B;
+double test;
 
 Store linka("Linka", 1);
 
@@ -27,3 +28,5 @@ class Generator : public Event {
         Activate(Time + Exponential(A));
     }
 };
+
+
