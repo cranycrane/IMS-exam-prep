@@ -9,7 +9,7 @@ class Facility {
     Queue q;
 
     void Seize(Process *np) {
-        if (p != NULL) {
+        if (isBusy()) {
             q.add(np);
         } else {
             p = np;
