@@ -57,8 +57,6 @@ void RK4Step(double time, double step, double* y) {
         // Finálny výsledok
         y[i] = y_init[i] + k1[i]/6 + k2[i]/3  + k3[i]/3 + k4[i]/6;
     }
-
-    time += step; // Posun modelového času
 }
 
 int main() {
@@ -76,7 +74,7 @@ int main() {
         if (time + step * 1.01 > t_end)
             step = t_end - time;
 
-        time += step;
+        time += step; // Posun modelového času
     }
 
     return 0;
